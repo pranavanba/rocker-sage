@@ -10,4 +10,4 @@ RUN pip install synapseclient
 RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 
-CMD echo -e "To launch RStudio Server, navigate to http://localhost:8787 and login with user/password rstudio/password." && tail -f /dev/null
+CMD ["/init"]

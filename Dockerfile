@@ -10,6 +10,8 @@ RUN pip install synapseclient
 RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 
+ENV ROOT=TRUE
+
 EXPOSE 8787
 
 CMD ["/init"]

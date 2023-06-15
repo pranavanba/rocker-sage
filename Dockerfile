@@ -1,4 +1,4 @@
-FROM rocker/tidyverse
+FROM rocker/rstudio
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \

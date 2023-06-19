@@ -13,5 +13,3 @@ RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "h
 ENV ROOT=TRUE
 
 EXPOSE 8787
-
-CMD ["/init"]

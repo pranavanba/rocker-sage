@@ -27,4 +27,3 @@ RUN curl -o /root/.aws/config https://raw.githubusercontent.com/Sage-Bionetworks
 
 ENV ROOT=TRUE
 
-EXPOSE 8787

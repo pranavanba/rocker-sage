@@ -14,7 +14,7 @@ docker pull ghcr.io/pranavanba/rocker-sage:main
 
 ### 2. Run a container using the image
 
-* Replace <container-name> with the desired name of your container
+* Replace `<container-name>` with the desired name of your container
 * `-p` binds port `8787` of the host machine to port `8787` of the container (feel free to change the ports as needed)
 * `PASSWORD` is the password you set for RStudio Server
 * `$SYNAPSE_AUTH_TOKEN` passes the value of the environment variable of the same name to the container (refer to the instructions [here](https://help.sc.sageit.org/sc/Service-Catalog-Provisioning.938836322.html#ServiceCatalogProvisioning-CreateaSynapsepersonalaccesstoken) to learn how to provision a personal access token for a Synapse account)

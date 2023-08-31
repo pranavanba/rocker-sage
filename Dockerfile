@@ -18,12 +18,11 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb" \
     && dpkg -i session-manager-plugin.deb
 
-RUN curl -o /root/synapse_creds.sh https://raw.githubusercontent.com/Sage-Bionetworks-IT/service-catalog-ssm-access/main/synapse_creds.sh \
-    && chmod +x /root/synapse_creds.sh
+RUN curl -o /home/rstudio/synapse_creds.sh https://raw.githubusercontent.com/Sage-Bionetworks-IT/service-catalog-ssm-access/main/synapse_creds.sh \
+    && chmod +x /home/rstudio/synapse_creds.sh
 
-RUN mkdir -p /root/.aws
+RUN mkdir -p /home/rstudio/.aws
 
-RUN curl -o /root/.aws/config https://raw.githubusercontent.com/Sage-Bionetworks-IT/service-catalog-ssm-access/main/config
+RUN curl -o /home/rstudio/.aws/config https://raw.githubusercontent.com/Sage-Bionetworks-IT/service-catalog-ssm-access/main/config
 
 ENV ROOT=TRUE
-

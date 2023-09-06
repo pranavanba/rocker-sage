@@ -2,7 +2,9 @@
 
 [![Create and publish a Docker image](https://github.com/pranavanba/rocker-sage/actions/workflows/docker-build-publish.yml/badge.svg)](https://github.com/pranavanba/rocker-sage/actions/workflows/docker-build-publish.yml)
 
-Docker image with up-to-date versions of R, RStudio, tidyverse packages, Synapser, and other packages commonly used by Sage Bionetworks
+Docker image with up-to-date versions of R, RStudio, tidyverse packages, Synapser, and other packages commonly used by Sage Bionetworks.
+
+See the full list of included tools, utilities, and libraries [below](#features)
 
 ## Usage
 
@@ -34,3 +36,47 @@ docker run --name <container-name> -d -p 8787:8787 -e PASSWORD=password -e SYNAP
 #### If running on your local machine
 
 1. Navigate to `localhost:8787` in your browser (container port is already exposed by `-p` in `docker run ...`)
+
+## Features
+
+This Dockerfile is based on the `rocker/tidyverse` image and includes various useful system utilities, development tools, and libraries as noted below.
+
+### System Utilities
+
+- `git`: Version control system
+- `curl`: Command-line tool for transferring data with URLs
+- `ssh`: Secure Shell protocol for secure remote access
+- `nano`: Text editor for the command line
+- `less`: Pager program for viewing text files
+- `unzip`: Utility for extracting compressed archive files
+
+### Development Tools
+
+- `python3`: Python 3 interpreter
+- `python3-pip`: Python package manager
+- `python3-venv`: Python virtual environment module
+- `libssl-dev`: Development files for OpenSSL
+- `libcurl4-openssl-dev`: Development files for libcurl
+- `libpng-dev`: Development files for libpng
+- `libglpk-dev`: Development files for the GNU Linear Programming Kit (GLPK)
+- `libxt-dev`: Development files for X Toolkit (Xt)
+- `liblzma-dev`: Development files for the liblzma library
+- `libbz2-dev`: Development files for the libbz2 library
+- `groff`: GNU troff text formatting system
+
+### R packages
+
+- `reticulate`: Use Python in R
+- `synapser`: Interface to Synapse
+- `synapserutils`: Utility functions built on top of `synapser`
+
+### Python packages
+
+- `synapseclient`: Client for Synapse
+
+### Additional Components
+
+- **AWS CLI**: AWS Command Line Interface for interacting with AWS services
+- **AWS Session Manager Plugin**: A plugin for AWS CLI for session management on AWS instances
+- **AWS Config File**: AWS configuration file (`config`) for AWS CLI setup
+- **Synapse Credentials Setup**: Includes a shell script (`synapse_creds.sh`) for configuring Synapse credentials

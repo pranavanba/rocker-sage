@@ -64,13 +64,14 @@ This Dockerfile is based on the `rocker/tidyverse` image and includes various us
 - `libbz2-dev`: Development files for the libbz2 library
 - `groff`: GNU troff text formatting system
 
-### R packages
+### R Packages
 
+- `Tidyverse`: Tidyverse packages are included from the `rocker/tidyverse` base image
 - `reticulate`: Use Python in R
 - `synapser`: Interface to Synapse
 - `synapserutils`: Utility functions built on top of `synapser`
 
-### Python packages
+### Python Packages
 
 - `synapseclient`: Client for Synapse
 

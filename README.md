@@ -31,6 +31,6 @@ docker run --name <container-name> -d -p 8787:8787 -e PASSWORD=password -e SYNAP
 1. Forward the port published by your `docker run` command (e.g. `"localPortNumber":["8787"], "portNumber":["8787"]`)
 2. Navigate to `localhost:8787` in your browser
 
-### If running on your local machine
+#### If running on your local machine
 
 1. Navigate to `localhost:8787` in your browser (container port is already exposed by `-p` in `docker run ...`)

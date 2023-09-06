@@ -26,7 +26,7 @@ docker run --name <container-name> -d -p 8787:8787 -e PASSWORD=password -e SYNAP
 
 ### 3. Connect to the RStudio Server
 
-#### If running from inside en EC2 instance, VM, etc.
+#### If running from inside an EC2 instance, VM, etc.
 
 1. Forward the port published by your `docker run` command (e.g. `"localPortNumber":["8787"], "portNumber":["8787"]`)
 2. Navigate to `localhost:8787` in your browser

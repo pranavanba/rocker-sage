@@ -8,6 +8,7 @@ RUN python3 -m pip install --upgrade pip
 RUN pip install synapseclient
 
 RUN R -e 'install.packages("reticulate")'
+RUN R -e 'reticulate::install_miniconda()'
 RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 

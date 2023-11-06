@@ -11,6 +11,7 @@ RUN R -e 'install.packages("reticulate")'
 RUN R -e 'reticulate::install_miniconda()'
 RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
+RUN R -e 'install.packages("devtools")'
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \

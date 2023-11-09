@@ -4,11 +4,11 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y git python3 python3-pip python3-venv curl libssl-dev libcurl4-openssl-dev unzip git ssh nano less libpng-dev libglpk-dev libxt-dev liblzma-dev libbz2-dev groff
 
-RUN python3 -m pip install --upgrade pip
+RUN pip install --upgrade pip
 RUN pip install synapseclient
+RUN pip install --user virtualenv
 
 RUN R -e 'install.packages("reticulate")'
-RUN R -e 'reticulate::install_miniconda()'
 RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
 RUN R -e 'install.packages("devtools")'

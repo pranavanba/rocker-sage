@@ -74,6 +74,7 @@ This Dockerfile is based on the `rocker/tidyverse` image and includes various us
 ### Python Packages
 
 - `synapseclient`: Client for Synapse
+- `virtualenv`: Create a python virtual environment
 
 ### Additional Components
 

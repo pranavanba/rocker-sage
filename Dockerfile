@@ -8,11 +8,6 @@ RUN pip install --upgrade pip
 RUN pip install synapseclient
 RUN pip install --user virtualenv
 
-RUN R -e 'install.packages("reticulate")'
-RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
-RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
-RUN R -e 'install.packages("devtools")'
-
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install
@@ -27,4 +22,15 @@ RUN mkdir -p /home/rstudio/.aws
 
 RUN curl -o /home/rstudio/.aws/config https://raw.githubusercontent.com/Sage-Bionetworks-IT/service-catalog-ssm-access/main/config
 
+RUN R -e 'install.packages("reticulate")'
+RUN R -e 'install.packages("synapser", repos = c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
+RUN R -e 'install.packages("synapserutils", repos=c("http://ran.synapse.org", "http://cran.fhcrc.org"))'
+RUN R -e 'install.packages("devtools")'
+
+RUN sed -i -e "s|\"<PERSONAL_ACCESS_TOKEN>\"|\"\${AWS_SYNAPSE_TOKEN}\"\n|g" \
+    -e "s|/absolute/path/to/synapse_creds.sh|/home/rstudio/synapse_creds.sh|g" \
+    /root/.aws/config
+
 ENV ROOT=TRUE
+
+CMD sed -i -e "s|\${AWS_SYNAPSE_TOKEN}|$AWS_SYNAPSE_TOKEN|g" /home/rstudio/.aws/config

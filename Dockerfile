@@ -33,4 +33,5 @@ RUN sed -i -e "s|\"<PERSONAL_ACCESS_TOKEN>\"|\"\${AWS_SYNAPSE_TOKEN}\"\n|g" \
 
 ENV ROOT=TRUE
 
-CMD sed -i -e "s|\${AWS_SYNAPSE_TOKEN}|$AWS_SYNAPSE_TOKEN|g" /home/rstudio/.aws/config
+CMD sed -i -e "s|\${AWS_SYNAPSE_TOKEN}|$AWS_SYNAPSE_TOKEN|g" /home/rstudio/.aws/config \
+    && /init

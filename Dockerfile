@@ -29,7 +29,7 @@ RUN R -e 'install.packages("devtools")'
 
 RUN sed -i -e "s|\"<PERSONAL_ACCESS_TOKEN>\"|\"\${AWS_SYNAPSE_TOKEN}\"\n|g" \
     -e "s|/absolute/path/to/synapse_creds.sh|/home/rstudio/synapse_creds.sh|g" \
-    /root/.aws/config
+    /home/rstudio/.aws/config
 
 ENV ROOT=TRUE
 

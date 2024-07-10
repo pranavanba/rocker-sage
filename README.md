@@ -2,7 +2,7 @@
 
 [![Create and publish a Docker image](https://github.com/pranavanba/rocker-sage/actions/workflows/docker-build-publish.yml/badge.svg)](https://github.com/pranavanba/rocker-sage/actions/workflows/docker-build-publish.yml)
 
-Docker image with up-to-date versions of R, RStudio, tidyverse packages, Synapser, and other packages commonly used by Sage Bionetworks.
+Docker image with R, RStudio, tidyverse packages, Synapser, and other packages commonly used by Sage Bionetworks.
 
 See the full list of included tools, utilities, and libraries [below](#features)
 
@@ -18,12 +18,14 @@ docker pull ghcr.io/pranavanba/rocker-sage:main
 
 * Replace `<container-name>` with the desired name of your container
 * `-p` binds port `8787` of the host machine to port `8787` of the container (feel free to change the ports as needed)
-* `PASSWORD` is the password you set for RStudio Server
-* `$SYNAPSE_AUTH_TOKEN` passes the value of the environment variable of the same name to the container (refer to the instructions [here](https://help.sc.sageit.org/sc/Service-Catalog-Provisioning.938836322.html#ServiceCatalogProvisioning-CreateaSynapsepersonalaccesstoken) to learn how to provision a personal access token for a Synapse account)
-* Use `--rm` if you would like the container to automatically remove upon exiting
+* `PASSWORD` is a password you set for logging in to your RStudio Server
+* Environment variables
+  * `$SYNAPSE_AUTH_TOKEN`: Synapse Personal Access Token used to connect a Synapse account to synapse clients (R, Python, CLI); refer to the instructions [here](https://www.synapse.org/#!PersonalAccessTokens:) to learn how to provision a personal access token for a Synapse account
+  * `$AWS_SYNAPSE_TOKEN`: Auth token used for connecting to AWS products provisioned in the Sage Service Catalog via AWS SSM from a local terminal; refer to the instructions [here](https://help.sc.sageit.org/sc/Service-Catalog-Provisioning.938836322.html#ServiceCatalogProvisioning-CreateaSynapsepersonalaccesstoken)
+* Use `--rm` if you want the container to automatically remove upon exiting
 
 ```sh
-docker run --name <container-name> -d -p 8787:8787 -e PASSWORD=password -e SYNAPSE_AUTH_TOKEN=$SYNAPSE_AUTH_TOKEN ghcr.io/pranavanba/rocker-sage:main
+docker run --name <container-name> -d -p 8787:8787 -e PASSWORD=password -e SYNAPSE_AUTH_TOKEN=$SYNAPSE_AUTH_TOKEN -e AWS_SYNAPSE_TOKEN=$AWS_SYNAPSE_TOKEN ghcr.io/pranavanba/rocker-sage:main
 ```
 
 ### 3. Connect to the RStudio Server
